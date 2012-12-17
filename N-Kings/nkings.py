@@ -1,9 +1,11 @@
+# Creates the board and keeps all the positions open.
 def createBoard(N):
 	board = {}
 	for i in range(N):
 		board[i] = [0 for j in range(N)]
 	return board
 
+#Sets the board, places all the peices. 1 - King, 2 - Invalid position, 0 - Open position
 def setBoard(K, N, pos):
 	board = createBoard(N)
 	for i in range(K):
@@ -32,12 +34,13 @@ def setBoard(K, N, pos):
 
 	return board
 
+# Tells if the position we are currently in is valid or not.
 def isPosValid(board, i, j, N):
 	if board[i][j] == 2:
 		return False
 	return True
 
-
+# Displays the chess board.
 def display(board, N):
 	print "---------Start-------- \n"
 	for i in range(N):
@@ -46,7 +49,7 @@ def display(board, N):
 		print "\n"
 	print "---------End-------- \n"
 		
-
+# Places the peice on the board using setBoard.
 def placePiece(board, N, K, newpos):
 	if K == N:
 		return 1
@@ -64,6 +67,7 @@ def placePiece(board, N, K, newpos):
 				board = setBoard(K, N, newpos)
 		return solved
 
+# Main calls it solve the problem.
 def solve(N, K, pos):
 	solutions = []
 	board = setBoard(K, N, pos)
@@ -71,10 +75,7 @@ def solve(N, K, pos):
 	solutions = placePiece(board, N, K, pos)
 	print(solutions%1000000007)
 	
-
-
-
-
+# Main.
 if __name__ == '__main__':
 	T = int(raw_input())
 	for i in range(T):
