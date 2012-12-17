@@ -19,4 +19,6 @@ Output:
 0
 1
 
+**Algorithm**
+Solved the problem recursively by setting up board and checking every column for each row if the current position is valid. You can see the solution as Depth First Search as we traverse up till the leaf(solution). The algorithm uses Constraint Programming by default as the first row after the place peice will always have minimum constraint that is will have less possible positions to start with.
 ______________________________________________
