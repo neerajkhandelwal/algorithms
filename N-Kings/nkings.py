@@ -9,6 +9,7 @@ def createBoard(N):
 def setBoard(K, N, pos):
 	board = createBoard(N)
 	for i in range(K):
+		# Excluding the diagonal blocks from the current position.
 		if i-1 >= 0:
 			board[i-1][pos[i]] = 2
 			if pos[i] - 1 >= 0:
@@ -26,7 +27,8 @@ def setBoard(K, N, pos):
 			board[i][pos[i] - 1] = 2
 		if pos[i] + 1 <= N-1:
 			board[i][pos[i] + 1] = 2
-		
+			
+		# Excluding the rows and column in which current block lies.
 		for j in range(N):
 			board[i][j] = 2
 			board[j][pos[i]] = 2
